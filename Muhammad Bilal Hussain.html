@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="ATS-friendly resume for Muhammad Bilal Hussain, WordPress Developer."
+        />
+        <title>Muhammad Bilal Hussain | WordPress Developer Resume</title>
+        <style>
+            :root {
+                color: #171a18;
+                background: #f0f2ee;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 10.5pt;
+                line-height: 1.48;
+                font-synthesis: none;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            .toolbar {
+                display: flex;
+                justify-content: center;
+                padding: 18px;
+            }
+
+            .print-button {
+                padding: 10px 17px;
+                border: 0;
+                border-radius: 6px;
+                background: #243d2a;
+                color: #fff;
+                font: 700 14px Arial, Helvetica, sans-serif;
+                cursor: pointer;
+            }
+
+            .resume {
+                width: min(210mm, calc(100% - 24px));
+                min-height: 297mm;
+                margin: 0 auto 24px;
+                padding: clamp(22px, 7vw, 15mm) clamp(20px, 8vw, 17mm);
+                background: #fff;
+                box-shadow: 0 4px 24px rgb(0 0 0 / 9%);
+            }
+
+            header {
+                padding-bottom: 15px;
+                border-bottom: 2px solid #243d2a;
+            }
+
+            h1 {
+                margin: 0 0 6px;
+                font-size: 25pt;
+                letter-spacing: -0.45pt;
+                line-height: 1.12;
+            }
+
+            .headline {
+                margin: 0 0 10px;
+                color: #34583b;
+                font-size: 12pt;
+                font-weight: 700;
+            }
+
+            .contact {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px 14px;
+                margin: 0;
+                font-size: 9.3pt;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                overflow-wrap: anywhere;
+            }
+
+            main {
+                padding-top: 1px;
+            }
+
+            section {
+                margin-top: 17px;
+            }
+
+            h2 {
+                margin: 0 0 9px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid #abb5ac;
+                color: #243d2a;
+                font-size: 11pt;
+                font-weight: 750;
+                letter-spacing: 0.45pt;
+                text-transform: uppercase;
+            }
+
+            p {
+                margin: 0 0 7px;
+            }
+
+            .summary {
+                margin-bottom: 0;
+            }
+
+            .skills p {
+                margin-bottom: 7px;
+            }
+
+            .skills strong {
+                font-weight: 700;
+            }
+
+            .job {
+                margin-top: 12px;
+            }
+
+            .job:first-of-type {
+                margin-top: 0;
+            }
+
+            .job-heading {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 2px 12px;
+                margin-bottom: 3px;
+            }
+
+            .job-heading h3,
+            .education h3 {
+                margin: 0;
+                font-size: 10.5pt;
+                font-weight: 700;
+            }
+
+            .date {
+                font-size: 9.4pt;
+                font-weight: 700;
+            }
+
+            .employer {
+                margin-bottom: 5px;
+                color: #424a44;
+                font-size: 9.5pt;
+                font-weight: 600;
+            }
+
+            ul {
+                margin: 5px 0 0;
+                padding-left: 20px;
+            }
+
+            li {
+                margin: 0 0 5px;
+                padding-left: 2px;
+            }
+
+            .projects-page {
+                break-before: page;
+                page-break-before: always;
+            }
+
+            .project-group {
+                margin: 0 0 11px;
+            }
+
+            .project-group strong {
+                font-weight: 700;
+            }
+
+            .education-entry {
+                margin-top: 12px;
+            }
+
+            .education-entry:first-of-type {
+                margin-top: 0;
+            }
+
+            .education-entry p {
+                margin: 1px 0 0;
+            }
+
+            @media screen {
+                .resume {
+                    min-height: 0;
+                }
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            @media print {
+                :root {
+                    font-size: 10.25pt;
+                    line-height: 1.44;
+                    background: #fff;
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+
+                .toolbar {
+                    display: none;
+                }
+
+                .resume {
+                    width: auto;
+                    min-height: 0;
+                    margin: 0;
+                    padding: 15mm 17mm 14mm;
+                    box-shadow: none;
+                }
+
+                section,
+                .job,
+                .education-entry {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                }
+
+                a {
+                    color: #171a18;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="toolbar">
+            <button class="print-button" type="button" onclick="window.print()">Print / Save as PDF</button>
+        </div>
+
+        <article class="resume">
+            <header>
+                <h1>Muhammad Bilal Hussain</h1>
+                <p class="headline">WordPress Developer | WooCommerce | Shopify</p>
+                <p class="contact">
+                    <span>Karachi, Pakistan</span>
+                    <a href="tel:+923082197473">+92 308 2197473</a>
+                    <a href="mailto:muhammadbilalh919@gmail.com">muhammadbilalh919@gmail.com</a>
+                    <a href="https://linkedin.com/in/muhammad-bilal-hussain-o308/">linkedin.com/in/muhammad-bilal-hussain-o308</a>
+                    <a href="https://portfolio-3m77iir43-bilal-0bd7.vercel.app/">Portfolio: portfolio-3m77iir43-bilal-0bd7.vercel.app</a>
+                </p>
+            </header>
+
+            <main>
+                <section aria-labelledby="summary-heading">
+                    <h2 id="summary-heading">Professional Summary</h2>
+                    <p class="summary">
+                        WordPress Developer with 3+ years of experience building, customizing, and deploying
+                        responsive websites. Delivered 18 live client websites across healthcare, marine, industrial,
+                        professional services, and luxury sectors. Skilled in Figma-to-WordPress development,
+                        Elementor, Bold Builder, WPBakery, WooCommerce, Shopify, Advanced Custom Fields (ACF),
+                        cPanel deployment, website performance, SEO, and troubleshooting.
+                    </p>
+                </section>
+
+                <section class="skills" aria-labelledby="skills-heading">
+                    <h2 id="skills-heading">Technical Skills</h2>
+                    <p><strong>WordPress and CMS:</strong> WordPress, Elementor, Bold Builder, WPBakery, custom themes, Advanced Custom Fields (ACF), plugin configuration</p>
+                    <p><strong>E-commerce:</strong> WooCommerce, Shopify, theme setup and customization, store configuration, custom widgets</p>
+                    <p><strong>Web and design:</strong> HTML5, CSS3, responsive web design, Figma-to-WordPress conversion, cross-browser compatibility</p>
+                    <p><strong>Hosting and optimization:</strong> cPanel, domain configuration, live server deployment, website security, speed optimization, SEO structure</p>
+                    <p><strong>Additional:</strong> Website maintenance, technical troubleshooting, AI-assisted debugging</p>
+                </section>
+
+                <section aria-labelledby="experience-heading">
+                    <h2 id="experience-heading">Work Experience</h2>
+                    <div class="job">
+                        <div class="job-heading">
+                            <h3>WordPress Developer</h3>
+                            <span class="date">May 2023 – Present</span>
+                        </div>
+                        <p class="employer">Digital Gravity | Karachi, Pakistan</p>
+                        <ul>
+                            <li>Build, customize, and maintain responsive WordPress websites using Elementor, Bold Builder, and WPBakery.</li>
+                            <li>Convert Figma designs into responsive, mobile-optimized, cross-browser-compatible web pages.</li>
+                            <li>Configure WooCommerce stores, custom ACF fields, and plugins; support website security and maintenance.</li>
+                            <li>Manage domain configuration, cPanel hosting, and end-to-end website deployments.</li>
+                            <li>Improve website speed and SEO structure; use AI-assisted debugging to troubleshoot technical issues.</li>
+                            <li>Contribute to a portfolio of 18 live client websites across multiple industries.</li>
+                        </ul>
+                    </div>
+                    <div class="job">
+                        <div class="job-heading">
+                            <h3>SMS Services Executive</h3>
+                            <span class="date">October 2020 – April 2023</span>
+                        </div>
+                        <p class="employer">Intellexal Solution | Karachi, Pakistan</p>
+                        <ul>
+                            <li>Monitored and managed enterprise SMS routing to support reliable, high-volume message delivery.</li>
+                            <li>Handled real-time technical troubleshooting, error tracking, and diagnostic reporting for client services.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="projects-page">
+                    <section aria-labelledby="projects-heading">
+                        <h2 id="projects-heading">Selected Projects | 18 Live Websites</h2>
+                        <p class="project-group">
+                            <strong>Healthcare:</strong>
+                            <a href="https://canadiancmc.com">Canadian Medical Center (canadiancmc.com)</a>;
+                            <a href="https://alriyadhmc.com">Al Riyadh Medical Center (alriyadhmc.com)</a>;
+                            <a href="https://tbfertility.com">TB Fertility (tbfertility.com)</a>.
+                        </p>
+                        <p class="project-group">
+                            <strong>Marine and aviation:</strong>
+                            <a href="https://tutinoyachts.com">Tutino Yachts (tutinoyachts.com)</a>;
+                            <a href="https://asmboats.com">ASM Boats (asmboats.com)</a>;
+                            <a href="https://viteljet.ae">Viteljet Aviation &amp; Marine (viteljet.ae)</a>.
+                        </p>
+                        <p class="project-group">
+                            <strong>Industrial:</strong>
+                            <a href="https://shouuaa.com">Shoaa Company (shouuaa.com)</a>;
+                            <a href="https://metrobitcorp.com">Metrobit FZCO (metrobitcorp.com)</a>;
+                            <a href="https://spt.ae">SPT UAE (spt.ae)</a>;
+                            <a href="https://atad.com">ATAD (atad.com)</a>.
+                        </p>
+                        <p class="project-group">
+                            <strong>Professional and technical services:</strong>
+                            <a href="https://interfix.ae">Interfix Technical (interfix.ae)</a>;
+                            <a href="https://endeavorclean.com">Endeavor Cleaning (endeavorclean.com)</a>;
+                            <a href="https://pramura.com">Pramura (pramura.com)</a>;
+                            <a href="https://semetrie.com">Semetrie (semetrie.com)</a>.
+                        </p>
+                        <p class="project-group">
+                            <strong>Luxury:</strong>
+                            <a href="https://prestigevaletparking.ae">Prestige Valet Parking (prestigevaletparking.ae)</a>;
+                            <a href="https://thearabianuae.com">The Arabian UAE (thearabianuae.com)</a>;
+                            <a href="https://almaskan.com">Al Maskan (almaskan.com)</a>;
+                            <a href="https://omnia-veritas.com">Omnia Veritas (omnia-veritas.com)</a>.
+                        </p>
+                    </section>
+
+                    <section class="education" aria-labelledby="education-heading">
+                        <h2 id="education-heading">Education</h2>
+                        <div class="education-entry">
+                            <div class="job-heading">
+                                <h3>Intermediate</h3>
+                                <span class="date">2024 – 2026</span>
+                            </div>
+                            <p>Johor Degree Boys College | Karachi, Pakistan</p>
+                            <p>Examinations completed; results pending.</p>
+                        </div>
+                        <div class="education-entry">
+                            <div class="job-heading">
+                                <h3>Matriculation</h3>
+                                <span class="date">2020 – 2022</span>
+                            </div>
+                            <p>Abu Turab Boys Govt. School | Karachi, Pakistan</p>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </article>
+    </body>
+</html>
