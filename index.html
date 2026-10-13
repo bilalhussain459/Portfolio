@@ -1,0 +1,1895 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#10130f" />
+        <meta
+            name="description"
+            content="Muhammad Bilal Hussain builds responsive WordPress websites, online stores and high-performance digital experiences."
+        />
+        <meta property="og:title" content="Muhammad Bilal Hussain — WordPress Developer" />
+        <meta
+            property="og:description"
+            content="Precision-built WordPress websites. From first design to live deployment."
+        />
+        <meta property="og:type" content="website" />
+        <title>Muhammad Bilal Hussain — WordPress Developer</title>
+        <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+        <style>
+            :root {
+                color-scheme: dark;
+                --bg: #10130f;
+                --panel: #171b16;
+                --panel-light: #20251e;
+                --line: #30362d;
+                --ink: #f1f1e8;
+                --muted: #a0a498;
+                --acid: #d3ff52;
+                --acid-dim: #a4c63c;
+                --font: "Arial Narrow", "Roboto Condensed", "Segoe UI", sans-serif;
+                --page-width: 1350px;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: "Segoe UI", Arial, sans-serif;
+                font-synthesis: none;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                scroll-behavior: smooth;
+                scroll-padding-top: 88px;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            body {
+                min-width: 320px;
+                margin: 0;
+                overflow-x: hidden;
+                background:
+                    radial-gradient(ellipse at 78% 13%, rgb(157 181 103 / 5%), transparent 35%),
+                    var(--bg);
+                font-size: 15px;
+                line-height: 1.65;
+            }
+
+            a {
+                color: inherit;
+            }
+
+            a,
+            button {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            :focus-visible {
+                outline: 2px solid var(--acid);
+                outline-offset: 5px;
+            }
+
+            .container {
+                width: min(var(--page-width), calc(100% - 64px));
+                margin-inline: auto;
+            }
+
+            .topbar {
+                position: sticky;
+                z-index: 10;
+                top: 0;
+                border-bottom: 1px solid rgb(255 255 255 / 7%);
+                background: rgb(16 19 15 / 92%);
+                backdrop-filter: blur(14px);
+            }
+
+            .nav {
+                position: relative;
+                display: flex;
+                min-height: 76px;
+                align-items: center;
+                justify-content: space-between;
+                gap: 28px;
+            }
+
+            .brand {
+                display: inline-flex;
+                flex: 0 0 auto;
+                align-items: center;
+                gap: 11px;
+                font-size: 14px;
+                font-weight: 740;
+                letter-spacing: 0.025em;
+                text-decoration: none;
+            }
+
+            .brand-mark {
+                display: grid;
+                width: 38px;
+                height: 38px;
+                place-items: center;
+                background: var(--acid);
+                color: var(--bg);
+                font-size: 12px;
+                font-weight: 900;
+                letter-spacing: -0.04em;
+            }
+
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: clamp(20px, 3vw, 38px);
+            }
+
+            .nav-links > a:not(.button) {
+                color: var(--muted);
+                font-size: 14px;
+                font-weight: 650;
+                letter-spacing: 0.045em;
+                text-decoration: none;
+                transition: color 160ms ease;
+            }
+
+            .nav-links > a:not(.button):hover {
+                color: var(--acid);
+            }
+
+            .menu-toggle {
+                display: none;
+                width: 43px;
+                height: 43px;
+                place-items: center;
+                border: 1px solid var(--line);
+                background: var(--panel);
+                color: var(--ink);
+                cursor: pointer;
+                clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+            }
+
+            .button {
+                --button-bg: var(--acid);
+
+                display: inline-flex;
+                min-height: 48px;
+                align-items: center;
+                justify-content: center;
+                gap: 11px;
+                padding: 0 22px;
+                border: 0;
+                background: var(--button-bg);
+                color: var(--bg);
+                font-family: var(--font);
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.1em;
+                text-decoration: none;
+                text-transform: uppercase;
+                clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 11px 100%, 0 calc(100% - 11px));
+                transition:
+                    background-color 180ms ease,
+                    color 180ms ease,
+                    transform 180ms ease;
+            }
+
+            .button:hover {
+                transform: translateY(-2px);
+                --button-bg: #e2ff88;
+            }
+
+            .button--outline {
+                --button-bg: transparent;
+
+                box-shadow: inset 0 0 0 1px rgb(241 241 232 / 28%);
+                color: var(--ink);
+            }
+
+            .button--outline:hover {
+                --button-bg: rgb(211 255 82 / 9%);
+
+                color: var(--acid);
+            }
+
+            .button-arrow {
+                width: 14px;
+                height: 14px;
+                flex: 0 0 auto;
+                transition: transform 200ms cubic-bezier(0.2, 0.75, 0.25, 1);
+            }
+
+            .button:hover .button-arrow,
+            .button:focus-visible .button-arrow {
+                transform: translate(2px, -2px);
+            }
+
+            .hero {
+                position: relative;
+                display: grid;
+                min-height: min(750px, calc(100svh - 76px));
+                align-items: center;
+                padding-block: 80px 72px;
+                isolation: isolate;
+            }
+
+            .hero::before {
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                right: 0;
+                width: min(78vw, 1070px);
+                height: 100%;
+                background-image:
+                    linear-gradient(rgb(211 255 82 / 4%) 1px, transparent 1px),
+                    linear-gradient(90deg, rgb(211 255 82 / 4%) 1px, transparent 1px);
+                background-position: center center;
+                background-size: 52px 52px;
+                content: "";
+                mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
+                opacity: 0.7;
+                pointer-events: none;
+            }
+
+            .hero::after {
+                position: absolute;
+                z-index: -1;
+                top: -42%;
+                right: 5%;
+                width: 600px;
+                height: 600px;
+                border: 1px solid rgb(211 255 82 / 9%);
+                border-radius: 50%;
+                box-shadow:
+                    0 0 0 70px rgb(211 255 82 / 2%),
+                    0 0 0 140px rgb(211 255 82 / 2%);
+                content: "";
+                pointer-events: none;
+            }
+
+            .hero-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 0.92fr) minmax(440px, 1.08fr);
+                align-items: center;
+                gap: 5.5vw;
+            }
+
+            .hero-copy {
+                position: relative;
+                z-index: 1;
+            }
+
+            .eyebrow {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 0 0 23px;
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: 11px;
+                font-weight: 800;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+            }
+
+            .eyebrow-dot {
+                width: 8px;
+                height: 8px;
+                flex: 0 0 auto;
+                background: var(--acid);
+                box-shadow: 0 0 16px rgb(211 255 82 / 65%);
+            }
+
+            h1,
+            h2,
+            h3,
+            p {
+                margin-top: 0;
+            }
+
+            h1 {
+                max-width: 800px;
+                margin-bottom: 23px;
+                font-family: var(--font);
+                font-size: clamp(58px, 8.3vw, 112px);
+                font-stretch: condensed;
+                font-weight: 900;
+                letter-spacing: -0.075em;
+                line-height: 0.87;
+                text-transform: uppercase;
+            }
+
+            h1 span {
+                display: block;
+                color: var(--acid);
+            }
+
+            .hero-description {
+                max-width: 650px;
+                margin-bottom: 28px;
+                color: #b4b7ab;
+                font-size: clamp(14px, 1.5vw, 17px);
+                line-height: 1.8;
+            }
+
+            .hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .location-line {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 25px 0 0;
+                color: var(--muted);
+                font-size: 11px;
+                font-weight: 620;
+                letter-spacing: 0.055em;
+                text-transform: uppercase;
+            }
+
+            .location-line svg {
+                width: 14px;
+                height: 14px;
+                color: var(--acid);
+            }
+
+            .arena {
+                position: relative;
+                min-height: 390px;
+                isolation: isolate;
+            }
+
+            .arena-rings {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: min(37vw, 440px);
+                aspect-ratio: 1;
+                border: 1px solid rgb(211 255 82 / 18%);
+                border-radius: 50%;
+                box-shadow:
+                    0 0 0 40px rgb(211 255 82 / 2%),
+                    0 0 0 82px rgb(211 255 82 / 2%);
+                transform: translate(-50%, -50%);
+                translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+                transition: translate 180ms ease-out;
+            }
+
+            .arena-rings::before,
+            .arena-rings::after {
+                position: absolute;
+                inset: 13%;
+                border: 1px dashed rgb(211 255 82 / 23%);
+                border-radius: 50%;
+                content: "";
+            }
+
+            .arena-rings::after {
+                inset: 29%;
+                border-style: solid;
+                border-color: rgb(211 255 82 / 13%);
+            }
+
+            .orbit-signal {
+                position: absolute;
+                z-index: 1;
+                display: grid;
+                inset: 0;
+                place-items: center;
+                pointer-events: none;
+                translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+                transition: translate 180ms ease-out;
+            }
+
+            .orbit-signal span {
+                position: relative;
+                width: min(30vw, 360px);
+                aspect-ratio: 1;
+                border: 1px solid rgb(211 255 82 / 12%);
+                border-top: 2px solid var(--acid);
+                border-right-color: transparent;
+                border-radius: 50%;
+                animation: orbit-spin 10s linear infinite;
+            }
+
+            .orbit-signal span::after {
+                position: absolute;
+                top: -5px;
+                left: 50%;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--acid);
+                box-shadow:
+                    0 0 10px var(--acid),
+                    0 0 24px rgb(211 255 82 / 65%);
+                content: "";
+                transform: translateX(-50%);
+            }
+
+            .scan-line {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--acid), transparent);
+                opacity: 0.75;
+                transform: translate(-50%, -50%);
+                animation: scan-pulse 4s ease-in-out infinite;
+            }
+
+            .arena-cross {
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                width: 54%;
+                height: 1px;
+                background: rgb(211 255 82 / 20%);
+                transform: translate(-50%, -50%) rotate(-45deg);
+                translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+                transition: translate 180ms ease-out;
+            }
+
+            .arena-cross::after {
+                position: absolute;
+                top: -165px;
+                left: 50%;
+                width: 1px;
+                height: 330px;
+                background: rgb(211 255 82 / 15%);
+                content: "";
+            }
+
+            .hero-panel {
+                position: absolute;
+                z-index: 2;
+                inset: 13% 7% 12% 10%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: clamp(21px, 3vw, 37px);
+                border: 1px solid rgb(211 255 82 / 28%);
+                background:
+                    linear-gradient(145deg, rgb(32 39 28 / 95%), rgb(17 22 17 / 97%)),
+                    var(--panel);
+                box-shadow:
+                    0 24px 90px rgb(0 0 0 / 38%),
+                    inset 0 0 46px rgb(211 255 82 / 3%);
+                transform: rotate(-3deg);
+                translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+                transition: translate 180ms ease-out;
+                animation: panel-float 6s ease-in-out infinite;
+            }
+
+            .panel-top,
+            .panel-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                color: var(--muted);
+                font-family: var(--font);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+            }
+
+            .panel-status {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                color: var(--acid);
+            }
+
+            .panel-status::before {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--acid);
+                box-shadow: 0 0 12px var(--acid);
+                content: "";
+            }
+
+            .panel-number {
+                margin: -2px 0 0;
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: clamp(110px, 17vw, 190px);
+                font-weight: 900;
+                letter-spacing: -0.1em;
+                line-height: 0.92;
+                text-shadow: 0 0 55px rgb(211 255 82 / 13%);
+            }
+
+            .panel-title {
+                margin: 0;
+                font-family: var(--font);
+                font-size: clamp(16px, 2vw, 22px);
+                font-weight: 850;
+                letter-spacing: 0.13em;
+                line-height: 1.2;
+                text-transform: uppercase;
+            }
+
+            .panel-caption {
+                margin: 5px 0 0;
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            .panel-bottom {
+                padding-top: 17px;
+                border-top: 1px solid var(--line);
+            }
+
+            .panel-corner {
+                position: absolute;
+                top: 5%;
+                right: 3%;
+                z-index: 2;
+                display: grid;
+                width: 51px;
+                height: 51px;
+                place-items: center;
+                border: 1px solid rgb(211 255 82 / 55%);
+                background: var(--bg);
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: 18px;
+                font-weight: 850;
+            }
+
+            .panel-corner::after {
+                position: absolute;
+                right: 4px;
+                bottom: 4px;
+                left: 4px;
+                height: 1px;
+                background: var(--acid);
+                content: "";
+            }
+
+            .stats {
+                border-block: 1px solid var(--line);
+                background:
+                    linear-gradient(90deg, transparent, rgb(211 255 82 / 3%), transparent),
+                    #131712;
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                padding-block: 26px;
+            }
+
+            .stat {
+                position: relative;
+                padding: 4px 27px;
+                border-right: 1px solid var(--line);
+            }
+
+            .stat:first-child {
+                padding-left: 0;
+            }
+
+            .stat:last-child {
+                border-right: 0;
+            }
+
+            .stat strong {
+                display: block;
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: 32px;
+                font-weight: 900;
+                letter-spacing: -0.045em;
+                line-height: 1.1;
+            }
+
+            .stat span {
+                display: block;
+                margin-top: 5px;
+                color: var(--muted);
+                font-family: var(--font);
+                font-size: 10px;
+                font-weight: 760;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            .section {
+                padding-block: 108px;
+            }
+
+            .section--alt {
+                border-block: 1px solid rgb(255 255 255 / 5%);
+                background: #141813;
+            }
+
+            .section-heading {
+                display: flex;
+                align-items: end;
+                justify-content: space-between;
+                gap: 25px;
+                margin-bottom: 39px;
+            }
+
+            .kicker {
+                margin-bottom: 10px;
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: 10px;
+                font-weight: 850;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+            }
+
+            h2 {
+                margin: 0;
+                font-family: var(--font);
+                font-size: clamp(36px, 5.2vw, 62px);
+                font-weight: 900;
+                letter-spacing: -0.06em;
+                line-height: 0.99;
+                text-transform: uppercase;
+            }
+
+            .heading-note {
+                max-width: 390px;
+                margin: 0 0 2px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .filters {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+
+            .filter {
+                min-height: 36px;
+                padding: 0 14px;
+                border: 1px solid var(--line);
+                background: transparent;
+                color: var(--muted);
+                font-family: var(--font);
+                font-size: 10px;
+                font-weight: 820;
+                letter-spacing: 0.09em;
+                text-transform: uppercase;
+                cursor: pointer;
+                clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 7px 100%, 0 calc(100% - 7px));
+                transition:
+                    border-color 160ms ease,
+                    background-color 160ms ease,
+                    color 160ms ease;
+            }
+
+            .filter:hover,
+            .filter[aria-pressed="true"] {
+                border-color: var(--acid);
+                background: var(--acid);
+                color: var(--bg);
+            }
+
+            .filter-status {
+                min-height: 20px;
+                margin: 0 0 18px;
+                color: var(--muted);
+                font-family: var(--font);
+                font-size: 10px;
+                font-weight: 730;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .project-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .project {
+                --preview-height: 320px;
+
+                position: relative;
+                height: var(--preview-height);
+                min-height: var(--preview-height);
+                overflow: hidden;
+                border: 1px solid var(--line);
+                background: var(--panel);
+                text-decoration: none;
+                isolation: isolate;
+                transition:
+                    transform 200ms ease,
+                    border-color 200ms ease,
+                    box-shadow 200ms ease;
+            }
+
+            .project::before {
+                position: absolute;
+                z-index: -1;
+                inset: 0;
+                background-image:
+                    linear-gradient(rgb(211 255 82 / 7%) 1px, transparent 1px),
+                    linear-gradient(90deg, rgb(211 255 82 / 7%) 1px, transparent 1px);
+                background-position: center;
+                background-size: 25px 25px;
+                content: "";
+                mask-image: linear-gradient(135deg, #000, transparent 82%);
+                opacity: 0.55;
+            }
+
+            .project::after {
+                position: absolute;
+                z-index: -1;
+                top: -46px;
+                right: -22px;
+                width: 190px;
+                height: 190px;
+                border: 1px solid color-mix(in srgb, var(--project-accent) 29%, transparent);
+                border-radius: 50%;
+                box-shadow: 0 0 0 23px color-mix(in srgb, var(--project-accent) 5%, transparent);
+                content: "";
+                transition: transform 260ms ease;
+            }
+
+            .project:hover {
+                transform: translateY(-4px);
+                border-color: color-mix(in srgb, var(--project-accent) 63%, var(--line));
+                box-shadow: 0 14px 38px rgb(0 0 0 / 23%);
+            }
+
+            .project:hover::after {
+                transform: scale(1.08);
+            }
+
+            .project[hidden] {
+                display: none;
+            }
+
+            .project-preview {
+                position: absolute;
+                z-index: 0;
+                inset: 0;
+                overflow: hidden;
+                background: #1a2018;
+                pointer-events: none;
+            }
+
+            .project-preview::after {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(180deg, rgb(12 15 12 / 24%), transparent 38%, rgb(12 15 12 / 86%));
+                content: "";
+            }
+
+            .project-preview img {
+                display: block;
+                width: 100%;
+                height: auto;
+                transform: translateY(0);
+                transition: transform var(--preview-duration, 8s) linear;
+            }
+
+            .project:hover .project-preview img,
+            .project:focus-visible .project-preview img {
+                transform: translateY(var(--preview-scroll, 0px));
+            }
+
+            .project-inner {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                height: 100%;
+                min-height: inherit;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 19px;
+            }
+
+            .project-meta,
+            .project-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .project-meta {
+                color: var(--muted);
+                font-family: var(--font);
+                font-size: 12px;
+                font-weight: 780;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            .project-live {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                color: var(--project-accent);
+            }
+
+            .project-live::before {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: currentcolor;
+                box-shadow: 0 0 10px currentcolor;
+                content: "";
+            }
+
+            .project-monogram {
+                display: none;
+            }
+
+            .project-bottom {
+                align-items: end;
+                padding-top: 13px;
+                border-top: 1px solid rgb(255 255 255 / 10%);
+            }
+
+            .project-bottom strong {
+                display: block;
+                font-family: var(--font);
+                font-size: 15px;
+                font-weight: 850;
+                letter-spacing: 0.025em;
+                line-height: 1.25;
+            }
+
+            .project-bottom small {
+                display: block;
+                margin-top: 2px;
+                color: var(--muted);
+                font-size: 14px;
+                letter-spacing: 0.035em;
+            }
+
+            .project-arrow {
+                display: grid;
+                width: 32px;
+                height: 32px;
+                flex: 0 0 auto;
+                place-items: center;
+                border: 1px solid var(--line);
+                background: transparent;
+                color: var(--muted);
+                transition:
+                    background-color 160ms ease,
+                    color 160ms ease;
+            }
+
+            .project-arrow svg {
+                width: 14px;
+                height: 14px;
+                transition: transform 200ms ease;
+            }
+
+            .project:hover .project-arrow {
+                border-color: var(--project-accent);
+                background: var(--project-accent);
+                color: var(--bg);
+            }
+
+            .project:hover .project-arrow svg {
+                transform: translate(2px, -2px);
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 13px;
+            }
+
+            .service {
+                min-height: 198px;
+                padding: 23px 19px;
+                border: 1px solid var(--line);
+                background: linear-gradient(145deg, #191e18, #141813);
+                transition:
+                    border-color 180ms ease,
+                    transform 180ms ease;
+            }
+
+            .service:hover {
+                transform: translateY(-3px);
+                border-color: rgb(211 255 82 / 48%);
+            }
+
+            .service-index {
+                display: flex;
+                width: 37px;
+                height: 37px;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 26px;
+                border: 1px solid rgb(211 255 82 / 33%);
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: 12px;
+                font-weight: 850;
+            }
+
+            .service h3 {
+                margin: 0 0 9px;
+                font-family: var(--font);
+                font-size: 15px;
+                font-weight: 850;
+                letter-spacing: 0.035em;
+                text-transform: uppercase;
+            }
+
+            .service p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 14px;
+                line-height: 1.75;
+            }
+
+            .about-grid {
+                display: grid;
+                grid-template-columns: 0.8fr 1.2fr;
+                gap: 77px;
+                align-items: start;
+            }
+
+            .about-copy {
+                max-width: 620px;
+                color: #afb2a7;
+                font-size: 14px;
+            }
+
+            .about-copy p + p {
+                margin-top: 17px;
+            }
+
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 24px;
+            }
+
+            .skill {
+                padding: 7px 11px;
+                border: 1px solid var(--line);
+                background: #151914;
+                color: #b9bcae;
+                font-family: var(--font);
+                font-size: 12px;
+                font-weight: 760;
+                letter-spacing: 0.065em;
+                text-transform: uppercase;
+            }
+
+            .experience-list {
+                border-top: 1px solid var(--line);
+            }
+
+            .experience-item {
+                display: grid;
+                grid-template-columns: 164px 1fr;
+                gap: 22px;
+                padding: 22px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .experience-date {
+                padding-top: 3px;
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .experience-item h3 {
+                margin: 0 0 5px;
+                font-family: var(--font);
+                font-size: 18px;
+                font-weight: 850;
+                letter-spacing: 0.025em;
+                text-transform: uppercase;
+            }
+
+            .experience-place {
+                margin-bottom: 9px;
+                color: #c1c4b8;
+                font-size: 11px;
+                font-weight: 650;
+            }
+
+            .experience-item p:last-child {
+                margin-bottom: 0;
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            .contact-card {
+                position: relative;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: 35px;
+                overflow: hidden;
+                padding: clamp(28px, 5vw, 54px);
+                border: 1px solid rgb(211 255 82 / 30%);
+                background:
+                    radial-gradient(circle at 87% 40%, rgb(211 255 82 / 9%), transparent 31%),
+                    linear-gradient(120deg, #1a2018, #121611);
+            }
+
+            .contact-card::after {
+                position: absolute;
+                top: -100px;
+                right: 17%;
+                width: 280px;
+                height: 280px;
+                border: 1px solid rgb(211 255 82 / 12%);
+                border-radius: 50%;
+                box-shadow: 0 0 0 34px rgb(211 255 82 / 3%);
+                content: "";
+                pointer-events: none;
+            }
+
+            .contact-card .kicker {
+                position: relative;
+                z-index: 1;
+            }
+
+            .contact-card h2 {
+                position: relative;
+                z-index: 1;
+                max-width: 690px;
+                margin-bottom: 13px;
+            }
+
+            .contact-card p:not(.kicker) {
+                position: relative;
+                z-index: 1;
+                max-width: 570px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .contact-details {
+                position: relative;
+                z-index: 1;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px 22px;
+                margin-top: 25px;
+            }
+
+            .contact-detail {
+                display: grid;
+                min-width: 0;
+                gap: 3px;
+                color: var(--ink);
+                text-decoration: none;
+            }
+
+            .contact-detail span {
+                color: var(--acid);
+                font-family: var(--font);
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            .contact-detail strong {
+                overflow-wrap: anywhere;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            a.contact-detail:hover strong {
+                color: var(--acid);
+            }
+
+            .contact-actions {
+                position: relative;
+                z-index: 1;
+                display: grid;
+                justify-items: start;
+                gap: 11px;
+            }
+
+            footer {
+                display: flex;
+                min-height: 77px;
+                align-items: center;
+                justify-content: space-between;
+                gap: 15px;
+                color: #7c8275;
+                font-size: 14px;
+            }
+
+            footer a {
+                color: #aeb2a6;
+                text-decoration: none;
+            }
+
+            footer a:hover {
+                color: var(--acid);
+            }
+
+            @keyframes orbit-spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes panel-float {
+                50% {
+                    transform: rotate(-3deg) translateY(-7px);
+                }
+            }
+
+            @keyframes scan-pulse {
+                50% {
+                    opacity: 0.3;
+                    transform: translate(-50%, -50%) scaleX(0.65);
+                }
+            }
+
+            @media (max-width: 1100px) {
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                }
+
+                .hero-description {
+                    max-width: 700px;
+                }
+
+                .arena {
+                    min-height: clamp(340px, 45vw, 440px);
+                }
+            }
+
+            @media (max-width: 920px) {
+                .container {
+                    width: min(100% - 48px, 700px);
+                }
+
+                .hero {
+                    min-height: auto;
+                    padding-block: 72px 60px;
+                }
+
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                }
+
+                .arena {
+                    min-height: 360px;
+                }
+
+                .arena-rings {
+                    width: 340px;
+                }
+
+                .stats-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    row-gap: 20px;
+                }
+
+                .stat:nth-child(2) {
+                    border-right: 0;
+                }
+
+                .stat:nth-child(3) {
+                    padding-left: 0;
+                }
+
+                .section {
+                    padding-block: 80px;
+                }
+
+                .project-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .services-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .about-grid {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+            }
+
+            @media (max-width: 620px) {
+                :root {
+                    scroll-padding-top: 72px;
+                }
+
+                .container {
+                    width: min(100% - 38px, 450px);
+                }
+
+                .nav {
+                    min-height: 68px;
+                }
+
+                .menu-toggle {
+                    display: grid;
+                }
+
+                .nav-links {
+                    position: absolute;
+                    top: calc(100% + 1px);
+                    right: -19px;
+                    left: -19px;
+                    display: none;
+                    align-items: stretch;
+                    gap: 0;
+                    padding: 7px 19px 18px;
+                    border-bottom: 1px solid var(--line);
+                    background: var(--bg);
+                }
+
+                .nav-links.is-open {
+                    display: grid;
+                }
+
+                .nav-links > a:not(.button) {
+                    padding: 13px 2px;
+                    border-bottom: 1px solid var(--line);
+                }
+
+                .nav-links .button {
+                    margin-top: 13px;
+                }
+
+                .hero {
+                    padding-block: 57px 49px;
+                }
+
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+
+                h1 {
+                    font-size: clamp(62px, 17vw, 93px);
+                }
+
+                .hero-description {
+                    font-size: 14px;
+                    max-width: 700px;
+                }
+
+                .arena {
+                    min-height: 335px;
+                }
+
+                .arena-rings {
+                    width: min(83vw, 340px);
+                }
+
+                .hero-panel {
+                    inset: 11% 8% 10% 9%;
+                }
+
+                .panel-number {
+                    font-size: clamp(122px, 38vw, 168px);
+                }
+
+                .stats-grid {
+                    row-gap: 15px;
+                    padding-block: 20px;
+                }
+
+                .stat {
+                    padding-inline: 15px;
+                }
+
+                .stat strong {
+                    font-size: 27px;
+                }
+
+                .section {
+                    padding-block: 68px;
+                }
+
+                .section-heading {
+                    display: block;
+                    margin-bottom: 26px;
+                }
+
+                .heading-note {
+                    margin-top: 12px;
+                }
+
+                .project-grid {
+                    gap: 10px;
+                }
+
+                .project {
+                    --preview-height: 270px;
+                }
+
+                .project-inner {
+                    padding: 13px;
+                }
+
+                .project-bottom strong {
+                    font-size: 13px;
+                }
+
+                .project-arrow {
+                    width: 28px;
+                    height: 28px;
+                }
+
+                .services-grid {
+                    gap: 10px;
+                }
+
+                .service {
+                    min-height: 190px;
+                    padding: 17px 13px;
+                }
+
+                .service-index {
+                    margin-bottom: 22px;
+                }
+
+                .experience-item {
+                    grid-template-columns: 1fr;
+                    gap: 6px;
+                }
+
+                .contact-card {
+                    grid-template-columns: 1fr;
+                    gap: 23px;
+                    padding: 27px 20px;
+                }
+
+                .contact-actions {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .contact-actions .button {
+                    width: 100%;
+                    padding-inline: 11px;
+                    font-size: 10px;
+                }
+
+            }
+
+            @media (max-width: 370px) {
+                .project-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .project {
+                    --preview-height: 240px;
+                }
+
+                .contact-actions {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    scroll-behavior: auto !important;
+                    animation-duration: 0.01ms !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="container nav">
+                <a class="brand" href="#top" aria-label="Bilal, back to top">
+                    <span class="brand-mark" aria-hidden="true">BH</span>
+                    <span>Bilal Hussain</span>
+                </a>
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                >
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.7" />
+                    </svg>
+                </button>
+                <nav class="nav-links" id="navigation" aria-label="Main navigation">
+                    <a href="#work">Work</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a class="button" href="#contact">
+                        Let's talk
+                        <svg class="button-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main id="top">
+            <section class="hero">
+                <div class="container hero-grid">
+                    <div class="hero-copy">
+                        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> WordPress developer · Karachi, Pakistan</p>
+                        <h1>Build.<span>Deploy.</span>Deliver.</h1>
+                        <p class="hero-description">
+                            I'm Muhammad Bilal Hussain. I turn Figma designs into responsive WordPress websites and
+                            online stores—from the first build to launch day.
+                        </p>
+                        <div class="hero-actions">
+                            <a class="button" href="#work">
+                                Explore my work
+                                <svg class="button-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <a
+                                class="button button--outline"
+                                href="./Muhammad%20Bilal%20Hussain%20-%20ATS%20Resume.pdf"
+                                download="Muhammad Bilal Hussain - ATS Resume.pdf"
+                            >
+                                Download CV
+                                <svg class="button-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="location-line">
+                            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <circle cx="8" cy="8" r="5.8" stroke="currentColor" stroke-width="1.3" />
+                                <path d="M8 4.7v3.6l2.2 1.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+                            </svg>
+                            3+ years building websites · Working with clients worldwide
+                        </p>
+                    </div>
+                    <div class="arena" aria-hidden="true">
+                        <div class="arena-rings"></div>
+                        <div class="orbit-signal" aria-hidden="true"><span></span></div>
+                        <div class="arena-cross"></div>
+                        <div class="scan-line"></div>
+                        <div class="hero-panel">
+                            <div class="panel-top"><span>Digital delivery unit</span><span class="panel-status">Active</span></div>
+                            <div>
+                                <p class="panel-number"><span id="website-counter" role="img" aria-label="18">00</span></p>
+                                <h2 class="panel-title">Live websites</h2>
+                                <p class="panel-caption">Designed. Developed. Deployed.</p>
+                            </div>
+                            <div class="panel-bottom"><span>WordPress / Commerce</span><span>PK · UAE · Global</span></div>
+                        </div>
+                        <div class="panel-corner">18</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats" aria-label="Experience highlights">
+                <div class="container stats-grid">
+                    <div class="stat"><strong>18</strong><span>Live deployments</span></div>
+                    <div class="stat"><strong>05</strong><span>Industries served</span></div>
+                    <div class="stat"><strong>03+</strong><span>Years experience</span></div>
+                    <div class="stat"><strong>UAE +</strong><span>International clients</span></div>
+                </div>
+            </section>
+
+            <section class="section" id="work">
+                <div class="container">
+                    <div class="section-heading">
+                        <div>
+                            <p class="kicker">Selected deployments / 01—18</p>
+                            <h2>Work on the ground.</h2>
+                        </div>
+                        <p class="heading-note">Live client websites across healthcare, marine, industrial, professional services and luxury.</p>
+                    </div>
+                    <div class="filters" role="group" aria-label="Filter projects">
+                        <button class="filter" type="button" data-filter="all" aria-pressed="true">All projects</button>
+                        <button class="filter" type="button" data-filter="healthcare" aria-pressed="false">Healthcare</button>
+                        <button class="filter" type="button" data-filter="marine" aria-pressed="false">Marine</button>
+                        <button class="filter" type="button" data-filter="industrial" aria-pressed="false">Industrial</button>
+                        <button class="filter" type="button" data-filter="services" aria-pressed="false">Services</button>
+                        <button class="filter" type="button" data-filter="luxury" aria-pressed="false">Luxury</button>
+                    </div>
+                    <p class="filter-status" id="filter-status" role="status" aria-live="polite">Displaying all 18 projects</p>
+                    <div class="project-grid">
+                        <a class="project" data-category="healthcare" style="--project-accent:#83d8a9" href="https://canadiancmc.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Canadian Medical Center website">
+                            <div class="project-inner"><div class="project-meta"><span>01 / Healthcare</span><span class="project-live">Live</span></div><strong class="project-monogram">CM</strong><div class="project-bottom"><span><strong>Canadian Medical Center</strong><small>canadiancmc.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="healthcare" style="--project-accent:#7ed6aa" href="https://alriyadhmc.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Al Riyadh Medical Center website">
+                            <div class="project-inner"><div class="project-meta"><span>02 / Healthcare</span><span class="project-live">Live</span></div><strong class="project-monogram">AR</strong><div class="project-bottom"><span><strong>Al Riyadh Medical Center</strong><small>alriyadhmc.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="healthcare" style="--project-accent:#e4a6bd" href="https://tbfertility.com" target="_blank" rel="noopener noreferrer" aria-label="Visit TB Fertility website">
+                            <div class="project-inner"><div class="project-meta"><span>03 / Healthcare</span><span class="project-live">Live</span></div><strong class="project-monogram">TB</strong><div class="project-bottom"><span><strong>TB Fertility</strong><small>tbfertility.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="marine" style="--project-accent:#70c9ec" href="https://tutinoyachts.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Tutino Yachts website">
+                            <div class="project-inner"><div class="project-meta"><span>04 / Marine</span><span class="project-live">Live</span></div><strong class="project-monogram">TY</strong><div class="project-bottom"><span><strong>Tutino Yachts</strong><small>tutinoyachts.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="marine" style="--project-accent:#7bd2c0" href="https://asmboats.com" target="_blank" rel="noopener noreferrer" aria-label="Visit ASM Boats website">
+                            <div class="project-inner"><div class="project-meta"><span>05 / Marine</span><span class="project-live">Live</span></div><strong class="project-monogram">ASM</strong><div class="project-bottom"><span><strong>ASM Boats</strong><small>asmboats.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="marine" style="--project-accent:#a8a4f1" href="https://viteljet.ae" target="_blank" rel="noopener noreferrer" aria-label="Visit Viteljet Aviation and Marine website">
+                            <div class="project-inner"><div class="project-meta"><span>06 / Marine</span><span class="project-live">Live</span></div><strong class="project-monogram">VJ</strong><div class="project-bottom"><span><strong>Viteljet Aviation &amp; Marine</strong><small>viteljet.ae</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="industrial" style="--project-accent:#e1b66f" href="https://shouuaa.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Shoaa Company website">
+                            <div class="project-inner"><div class="project-meta"><span>07 / Industrial</span><span class="project-live">Live</span></div><strong class="project-monogram">SC</strong><div class="project-bottom"><span><strong>Shoaa Company</strong><small>shouuaa.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="industrial" style="--project-accent:#c4c18a" href="https://metrobitcorp.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Metrobit FZCO website">
+                            <div class="project-inner"><div class="project-meta"><span>08 / Industrial</span><span class="project-live">Live</span></div><strong class="project-monogram">MB</strong><div class="project-bottom"><span><strong>Metrobit FZCO</strong><small>metrobitcorp.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="industrial" style="--project-accent:#91bae3" href="https://spt.ae" target="_blank" rel="noopener noreferrer" aria-label="Visit SPT UAE website">
+                            <div class="project-inner"><div class="project-meta"><span>09 / Industrial</span><span class="project-live">Live</span></div><strong class="project-monogram">SPT</strong><div class="project-bottom"><span><strong>SPT UAE</strong><small>spt.ae</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="industrial" style="--project-accent:#db9b77" href="https://atad.com" target="_blank" rel="noopener noreferrer" aria-label="Visit ATAD website">
+                            <div class="project-inner"><div class="project-meta"><span>10 / Industrial</span><span class="project-live">Live</span></div><strong class="project-monogram">ATAD</strong><div class="project-bottom"><span><strong>ATAD</strong><small>atad.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="services" style="--project-accent:#a8d084" href="https://interfix.ae" target="_blank" rel="noopener noreferrer" aria-label="Visit Interfix Technical website">
+                            <div class="project-inner"><div class="project-meta"><span>11 / Services</span><span class="project-live">Live</span></div><strong class="project-monogram">IF</strong><div class="project-bottom"><span><strong>Interfix Technical</strong><small>interfix.ae</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="services" style="--project-accent:#8bd1e3" href="https://endeavorclean.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Endeavor Cleaning website">
+                            <div class="project-inner"><div class="project-meta"><span>12 / Services</span><span class="project-live">Live</span></div><strong class="project-monogram">EC</strong><div class="project-bottom"><span><strong>Endeavor Cleaning</strong><small>endeavorclean.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="services" style="--project-accent:#e2b28b" href="https://pramura.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Pramura website">
+                            <div class="project-inner"><div class="project-meta"><span>13 / Services</span><span class="project-live">Live</span></div><strong class="project-monogram">P</strong><div class="project-bottom"><span><strong>Pramura</strong><small>pramura.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="services" style="--project-accent:#b1ace5" href="https://semetrie.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Semetrie website">
+                            <div class="project-inner"><div class="project-meta"><span>14 / Services</span><span class="project-live">Live</span></div><strong class="project-monogram">S</strong><div class="project-bottom"><span><strong>Semetrie</strong><small>semetrie.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="luxury" style="--project-accent:#dcc184" href="https://prestigevaletparking.ae" target="_blank" rel="noopener noreferrer" aria-label="Visit Prestige Valet Parking website">
+                            <div class="project-inner"><div class="project-meta"><span>15 / Luxury</span><span class="project-live">Live</span></div><strong class="project-monogram">PV</strong><div class="project-bottom"><span><strong>Prestige Valet Parking</strong><small>prestigevaletparking.ae</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="luxury" style="--project-accent:#d8b976" href="https://thearabianuae.com" target="_blank" rel="noopener noreferrer" aria-label="Visit The Arabian UAE website">
+                            <div class="project-inner"><div class="project-meta"><span>16 / Luxury</span><span class="project-live">Live</span></div><strong class="project-monogram">TA</strong><div class="project-bottom"><span><strong>The Arabian UAE</strong><small>thearabianuae.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="luxury" style="--project-accent:#d1a683" href="https://almaskan.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Al Maskan website">
+                            <div class="project-inner"><div class="project-meta"><span>17 / Luxury</span><span class="project-live">Live</span></div><strong class="project-monogram">AM</strong><div class="project-bottom"><span><strong>Al Maskan</strong><small>almaskan.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                        <a class="project" data-category="luxury" style="--project-accent:#c9c5a1" href="https://omnia-veritas.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Omnia Veritas website">
+                            <div class="project-inner"><div class="project-meta"><span>18 / Luxury</span><span class="project-live">Live</span></div><strong class="project-monogram">OV</strong><div class="project-bottom"><span><strong>Omnia Veritas</strong><small>omnia-veritas.com</small></span><span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section--alt" id="services">
+                <div class="container">
+                    <div class="section-heading">
+                        <div>
+                            <p class="kicker">Capabilities / 02</p>
+                            <h2>Ready for deployment.</h2>
+                        </div>
+                        <p class="heading-note">Practical development from the design handoff to launch day—and everything in between.</p>
+                    </div>
+                    <div class="services-grid">
+                        <article class="service">
+                            <span class="service-index">01</span>
+                            <h3>Figma to WordPress</h3>
+                            <p>Responsive, pixel-accurate implementations of design files across phones, tablets and desktop.</p>
+                        </article>
+                        <article class="service">
+                            <span class="service-index">02</span>
+                            <h3>Custom WordPress</h3>
+                            <p>Pages and components built with Elementor, Bold Builder, WPBakery and custom ACF fields.</p>
+                        </article>
+                        <article class="service">
+                            <span class="service-index">03</span>
+                            <h3>WooCommerce + Shopify</h3>
+                            <p>Store setup, responsive themes, plugin configuration and practical integrations.</p>
+                        </article>
+                        <article class="service">
+                            <span class="service-index">04</span>
+                            <h3>Launch + Optimization</h3>
+                            <p>Domain and cPanel deployment, technical SEO, site security, maintenance and speed.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="about">
+                <div class="container about-grid">
+                    <div>
+                        <p class="kicker">Personnel / 03</p>
+                        <h2>Developer with a focus on delivery.</h2>
+                    </div>
+                    <div class="about-copy">
+                        <p>
+                            I’m a Karachi-based WordPress Developer at Digital Gravity. I build responsive websites
+                            for clients across healthcare, marine, industrial, services and luxury sectors.
+                        </p>
+                        <p>
+                            I work across the full process—from translating Figma designs and configuring online stores
+                            to handling deployments, site maintenance and performance improvements.
+                        </p>
+                        <div class="skill-list" aria-label="Tools and skills">
+                            <span class="skill">WordPress</span>
+                            <span class="skill">Elementor</span>
+                            <span class="skill">Bold Builder</span>
+                            <span class="skill">WPBakery</span>
+                            <span class="skill">WooCommerce</span>
+                            <span class="skill">Shopify</span>
+                            <span class="skill">ACF</span>
+                            <span class="skill">Figma</span>
+                            <span class="skill">HTML &amp; CSS</span>
+                            <span class="skill">cPanel</span>
+                            <span class="skill">SEO</span>
+                            <span class="skill">Performance</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section--alt" id="experience">
+                <div class="container">
+                    <div class="section-heading">
+                        <div>
+                            <p class="kicker">Operational history / 04</p>
+                            <h2>Experience.</h2>
+                        </div>
+                    </div>
+                    <div class="experience-list">
+                        <article class="experience-item">
+                            <div class="experience-date">May 2023 — Present</div>
+                            <div>
+                                <h3>WordPress Developer</h3>
+                                <p class="experience-place">Digital Gravity · Karachi</p>
+                                <p>Building responsive WordPress websites, translating Figma designs, configuring WooCommerce and ACF, and managing site launches, maintenance, speed and SEO.</p>
+                            </div>
+                        </article>
+                        <article class="experience-item">
+                            <div class="experience-date">Oct 2020 — Apr 2023</div>
+                            <div>
+                                <h3>SMS Services Executive</h3>
+                                <p class="experience-place">Intellexal Solution · Karachi</p>
+                                <p>Monitored enterprise SMS routing and supported live troubleshooting, error tracking and diagnostic reporting.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <div class="container">
+                    <div class="contact-card">
+                        <div>
+                            <p class="kicker">Open channel / 05</p>
+                            <h2>Have a project to deploy?</h2>
+                            <p>Send over your brief or design. Let’s talk about getting your website live.</p>
+                            <div class="contact-details" aria-label="Contact details">
+                                <div class="contact-detail">
+                                    <span>Location</span>
+                                    <strong>Karachi, Pakistan</strong>
+                                </div>
+                                <a class="contact-detail" href="tel:+923082197473">
+                                    <span>Phone</span>
+                                    <strong>+92 308 2197473</strong>
+                                </a>
+                                <a class="contact-detail" href="mailto:muhammadbilalh919@gmail.com">
+                                    <span>Email</span>
+                                    <strong>muhammadbilalh919@gmail.com</strong>
+                                </a>
+                                <a
+                                    class="contact-detail"
+                                    href="https://linkedin.com/in/muhammad-bilal-hussain-o308/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <span>LinkedIn</span>
+                                    <strong>linkedin.com/in/muhammad-bilal-hussain-o308</strong>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-actions">
+                            <a class="button" href="mailto:muhammadbilalh919@gmail.com">
+                                Email me
+                                <svg class="button-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <a
+                                class="button button--outline"
+                                href="https://linkedin.com/in/muhammad-bilal-hussain-o308/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >LinkedIn
+                                <svg class="button-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="container">
+            <span>© <span id="year">2026</span> Muhammad Bilal Hussain</span>
+            <a href="#top">Back to top ↑</a>
+        </footer>
+
+        <script>
+            const filters = document.querySelectorAll(".filter");
+            const projects = document.querySelectorAll(".project");
+            const filterStatus = document.querySelector("#filter-status");
+            const projectPreviews = new Map([
+                ["canadiancmc.com", { file: "canadiancmc.webp", height: 6108 }],
+                ["alriyadhmc.com", { file: "alriyadhmc.webp", height: 3596 }],
+                ["tbfertility.com", { file: "tbfertility.webp", height: 2459 }],
+                ["tutinoyachts.com", { file: "tutinoyachts.webp", height: 5248 }],
+                ["asmboats.com", { file: "asmboats.webp", height: 3686 }],
+                ["viteljet.ae", { file: "viteljet.webp", height: 3615 }],
+                ["shouuaa.com", { file: "shouuaa.webp", height: 2810 }],
+                ["metrobitcorp.com", { file: "metrobitcorp.webp", height: 2281 }],
+                ["spt.ae", { file: "spt.webp", height: 1988 }],
+                ["atad.com", { file: "atad.webp", height: 4463 }],
+                ["interfix.ae", { file: "interfix.webp", height: 2024 }],
+                ["endeavorclean.com", { file: "endeavorclean.webp", height: 4213 }],
+                ["pramura.com", { file: "pramura.webp", height: 3641 }],
+                ["semetrie.com", { file: "semetrie.webp", height: 2266 }],
+                ["prestigevaletparking.ae", { file: "prestigevaletparking.webp", height: 3281 }],
+                ["thearabianuae.com", { file: "thearabianuae.webp", height: 4902 }],
+                ["almaskan.com", { file: "almaskan.webp", height: 3903 }],
+                ["omnia-veritas.com", { file: "omnia-veritas.webp", height: 2706 }],
+            ]);
+
+            projects.forEach((project) => {
+                const hostname = new URL(project.href).hostname.replace(/^www\./, "");
+                const previewConfig = projectPreviews.get(hostname);
+                if (!previewConfig) {
+                    console.error(`No project preview image configured for ${hostname}`);
+                    return;
+                }
+
+                const preview = document.createElement("div");
+                preview.className = "project-preview";
+                preview.setAttribute("aria-hidden", "true");
+
+                const image = document.createElement("img");
+                image.width = 960;
+                image.height = previewConfig.height;
+                image.src = `images/optimized/${previewConfig.file}`;
+                image.srcset = `images/optimized/mobile/${previewConfig.file} 320w, images/optimized/480/${previewConfig.file} 480w, images/optimized/${previewConfig.file} 960w`;
+                image.sizes = "(max-width: 370px) calc(100vw - 38px), (max-width: 920px) 46vw, 31vw";
+                image.alt = "";
+                image.loading = "lazy";
+                image.decoding = "async";
+                image.fetchPriority = "low";
+                image.draggable = false;
+                image.addEventListener(
+                    "load",
+                    () => {
+                        const scrollDistance = Math.max(image.offsetHeight - project.clientHeight, 0);
+                        const duration = Math.max(5, Math.min(16, scrollDistance / 160));
+                        image.style.setProperty("--preview-scroll", `${-scrollDistance}px`);
+                        image.style.setProperty("--preview-duration", `${duration}s`);
+                    },
+                    { once: true },
+                );
+
+                preview.append(image);
+                project.prepend(preview);
+            });
+
+            document.querySelector(".filters").addEventListener("click", (event) => {
+                const filter = event.target.closest("button[data-filter]");
+                if (!filter) return;
+
+                const category = filter.dataset.filter;
+                let visibleCount = 0;
+                filters.forEach((item) => item.setAttribute("aria-pressed", String(item === filter)));
+                projects.forEach((project) => {
+                    project.hidden = category !== "all" && project.dataset.category !== category;
+                    if (!project.hidden) visibleCount += 1;
+                });
+
+                const label = filter.textContent.trim();
+                filterStatus.textContent =
+                    category === "all"
+                        ? `Displaying all ${visibleCount} projects`
+                        : `Showing ${visibleCount} ${label} ${visibleCount === 1 ? "project" : "projects"}`;
+            });
+
+            const menuButton = document.querySelector(".menu-toggle");
+            const navigation = document.querySelector("#navigation");
+
+            menuButton.addEventListener("click", () => {
+                const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+                menuButton.setAttribute("aria-expanded", String(!isOpen));
+                menuButton.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+                navigation.classList.toggle("is-open", !isOpen);
+            });
+
+            navigation.addEventListener("click", (event) => {
+                if (event.target.closest("a")) {
+                    menuButton.setAttribute("aria-expanded", "false");
+                    menuButton.setAttribute("aria-label", "Open navigation");
+                    navigation.classList.remove("is-open");
+                }
+            });
+
+            document.querySelector("#year").textContent = new Date().getFullYear();
+
+            const websiteCounter = document.querySelector("#website-counter");
+            const counterTarget = 18;
+            const counterDuration = 1600;
+            const arena = document.querySelector(".arena");
+            const parallaxLayers = [
+                { element: arena.querySelector(".arena-rings"), depth: -1 },
+                { element: arena.querySelector(".orbit-signal"), depth: 0.7 },
+                { element: arena.querySelector(".arena-cross"), depth: 0.35 },
+                { element: arena.querySelector(".hero-panel"), depth: 0.45 },
+            ];
+
+            if (
+                window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+                !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ) {
+                let pointerFrame = 0;
+                let pointerPosition = null;
+
+                const updateParallax = () => {
+                    pointerFrame = 0;
+                    const bounds = arena.getBoundingClientRect();
+                    const x = (pointerPosition.x - bounds.left) / bounds.width - 0.5;
+                    const y = (pointerPosition.y - bounds.top) / bounds.height - 0.5;
+
+                    parallaxLayers.forEach(({ element, depth }) => {
+                        element.style.setProperty("--parallax-x", `${x * depth * 24}px`);
+                        element.style.setProperty("--parallax-y", `${y * depth * 24}px`);
+                    });
+                };
+
+                arena.addEventListener("pointermove", (event) => {
+                    pointerPosition = { x: event.clientX, y: event.clientY };
+                    if (!pointerFrame) pointerFrame = requestAnimationFrame(updateParallax);
+                });
+
+                arena.addEventListener("pointerleave", () => {
+                    pointerPosition = null;
+                    if (pointerFrame) cancelAnimationFrame(pointerFrame);
+                    pointerFrame = 0;
+                    parallaxLayers.forEach(({ element }) => {
+                        element.style.setProperty("--parallax-x", "0px");
+                        element.style.setProperty("--parallax-y", "0px");
+                    });
+                });
+            }
+
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                websiteCounter.textContent = String(counterTarget).padStart(2, "0");
+            } else {
+                const counterStart = performance.now();
+                const updateCounter = (now) => {
+                    const progress = Math.min((now - counterStart) / counterDuration, 1);
+                    const easedProgress = 1 - (1 - progress) ** 3;
+                    websiteCounter.textContent = String(Math.floor(counterTarget * easedProgress)).padStart(2, "0");
+                    if (progress < 1) requestAnimationFrame(updateCounter);
+                };
+
+                requestAnimationFrame(updateCounter);
+            }
+        </script>
+    </body>
+</html>
