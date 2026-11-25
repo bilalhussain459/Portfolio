@@ -624,6 +624,15 @@
                 border-radius: 50%;
                 background: rgba(13, 27, 42, 0.25);
             }
+            .shot-bar i:nth-child(1) {
+                background: #ff5f57;
+            }
+            .shot-bar i:nth-child(2) {
+                background: #febc2e;
+            }
+            .shot-bar i:nth-child(3) {
+                background: #28c840;
+            }
             .shot-bar span {
                 margin-left: 8px;
                 font-family: var(--mono);
@@ -787,8 +796,9 @@
                 aspect-ratio: 4/5;
                 border-radius: 10px;
                 overflow: hidden;
-                background: linear-gradient(160deg, #e0e1dd, #778da9);
+                background: linear-gradient(145deg, var(--bg2), var(--red));
                 border: 1px solid var(--line);
+                transition: box-shadow 0.45s var(--ease);
             }
             .portrait .mono-big {
                 position: absolute;
@@ -801,13 +811,82 @@
                 line-height: 1;
                 letter-spacing: -0.04em;
             }
-            .portrait img {
+            .portrait__photo {
                 position: absolute;
                 inset: -8% 0;
                 width: 100%;
                 height: 116%;
-                object-fit: cover;
                 will-change: transform;
+                clip-path: inset(100% 0 0 0);
+                transition: clip-path 1s var(--ease) 0.32s;
+            }
+            .portrait.in .portrait__photo {
+                clip-path: inset(0);
+            }
+            .portrait__photo img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.45s var(--ease);
+            }
+            .portrait__hello {
+                position: absolute;
+                top: 8px;
+                right: 10px;
+                z-index: 3;
+                padding: 9px 13px;
+                border: 1px solid rgba(23, 32, 51, 0.12);
+                border-radius: 999px;
+                background: var(--cream);
+                color: var(--ink);
+                font-family: var(--mono);
+                font-size: 11px;
+                opacity: 0;
+                transition: opacity 0.25s ease;
+                pointer-events: none;
+            }
+            .portrait__hello i {
+                color: var(--red);
+                font-style: normal;
+            }
+            .portrait__emoji {
+                position: absolute;
+                top: 12%;
+                left: 50%;
+                z-index: 3;
+                font-size: 75px;
+                line-height: 1;
+                opacity: 0;
+                transform: translateX(-50%);
+                transition: opacity 0.2s ease;
+                pointer-events: none;
+            }
+            @media (hover: hover) and (pointer: fine) {
+                .portrait:hover {
+                    box-shadow: 0 24px 54px -30px rgba(23, 32, 51, 0.5);
+                }
+                .portrait:hover .portrait__hello {
+                    opacity: 1;
+                }
+                .portrait:hover .portrait__emoji {
+                    opacity: 1;
+                }
+                .portrait:hover .portrait__photo img {
+                    transform: translateY(-12px);
+                }
+            }
+            @media (hover: none) {
+                .portrait:active {
+                    box-shadow: 0 24px 54px -30px rgba(23, 32, 51, 0.5);
+                }
+                .portrait:active .portrait__hello,
+                .portrait:active .portrait__emoji {
+                    opacity: 1;
+                }
+                .portrait:active .portrait__photo img {
+                    transform: translateY(-12px);
+                }
             }
             .portrait .cap {
                 position: absolute;
@@ -2039,6 +2118,18 @@
                 }
                 .sw {
                     opacity: 1;
+                }
+                .portrait__hello,
+                .portrait__emoji {
+                    transition: none;
+                }
+                .portrait__photo img {
+                    transform: none !important;
+                    transition: none !important;
+                }
+                .portrait__photo {
+                    clip-path: none !important;
+                    transition: none !important;
                 }
                 .badge svg.ring,
                 .pulse,

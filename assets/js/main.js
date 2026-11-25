@@ -55,9 +55,9 @@
                     ["Al Maskan", "almaskan.com", "Luxury"],
                     ["Omnia Veritas", "omnia-veritas.com", "Luxury"],
                     /* ===== 3 FREELANCE PROJECTS: apna naam, live domain (e.g. "mysite.com") aur screenshot yahan update karein ===== */
-                    ["Nativacare", "nativacare.com", "Freelance", "assets/images/work/nativacare.png", "Healthcare · WordPress"],
-                    ["Korvax AI", "korvax.ai", "Freelance", "assets/images/work/korvax-ai.png", "AI Platform · Custom Build"],
-                    ["Korvax Yachts", "korvaxyachtsdubai.com", "Freelance", "assets/images/work/korvax-yachts.png", "Luxury Marine · WordPress"],
+                    ["Nativacare", "nativacare.com", "Freelance", "assets/images/work/nativacare.webp", "Healthcare · WordPress"],
+                    ["Korvax AI", "korvax.ai", "Freelance", "assets/images/work/korvax-ai.webp", "AI Platform · Custom Build"],
+                    ["Korvax Yachts", "korvaxyachtsdubai.com", "Freelance", "assets/images/work/korvaxyachtsdubai.webp", "Luxury Marine · WordPress"],
                 ];
                 var skills = [
                     ["WordPress & CMS", [
@@ -185,12 +185,14 @@
                 });
 
                 /* ---------- reveal observers ---------- */
+                var revealTargets = new Map();
                 var io = new IntersectionObserver(
                     function (es) {
                         es.forEach(function (e) {
                             if (e.isIntersecting) {
-                                var t = e.target;
-                                io.unobserve(t);
+                                var t = revealTargets.get(e.target) || e.target;
+                                revealTargets.delete(e.target);
+                                io.unobserve(e.target);
                                 whenReady(function () {
                                     t.classList.add("in");
                                 });
@@ -200,7 +202,9 @@
                     { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
                 );
                 $$(".rv,.clip,[data-split],.shot").forEach(function (el) {
-                    io.observe(el);
+                    var target = el.classList.contains("clip") ? el.parentElement : el;
+                    revealTargets.set(target, el);
+                    io.observe(target);
                 });
                 var cio = new IntersectionObserver(
                     function (es) {
@@ -616,7 +620,8 @@
                     view = "grid",
                     fEl = $("#filters"),
                     pg = $("#pgrid"),
-                    pidx = $("#pidx");
+                    pidx = $("#pidx"),
+                    projectScrollObserver = null;
                 function ini(n) {
                     var num = n.match(/\d+$/);
                     if (num && /^Freelance/i.test(n)) return num[0].padStart(2, "0");
@@ -707,13 +712,21 @@
                     bindCards();
                 }
                 function bindCards() {
-                    if (reduced || !fine) return;
+                    if (reduced) return;
+                    if (projectScrollObserver) projectScrollObserver.disconnect();
+                    projectScrollObserver = !fine && "IntersectionObserver" in window
+                        ? new IntersectionObserver(function (entries) {
+                              entries.forEach(function (entry) {
+                                  if (entry.target._setImageMotion) entry.target._setImageMotion(entry.isIntersecting);
+                              });
+                          }, { threshold: 0.55, rootMargin: "0px 0px -8% 0px" })
+                        : null;
                     $$(".pc", pg).forEach(function (c) {
                         var m = $(".pc-media", c),
                             image = $(".pc-shot", m),
-                            hovering = false;
+                            active = false;
                         function startImageScroll() {
-                            if (!hovering || !image.complete || !image.naturalWidth) return;
+                            if (!active || !image.complete || !image.naturalWidth) return;
                             image.classList.remove("is-returning");
                             image.style.removeProperty("transform");
                             var imageHeight = (image.naturalHeight / image.naturalWidth) * m.clientWidth,
@@ -747,24 +760,32 @@
                                 image.style.removeProperty("transform");
                             }, { once: true });
                         }
+                        function setImageMotion(isActive) {
+                            active = isActive;
+                            if (active) startImageScroll();
+                            else returnImageToTop();
+                        }
+                        c._setImageMotion = setImageMotion;
                         image.addEventListener("load", startImageScroll, { once: true });
-                        c.addEventListener("pointerenter", function () {
-                            hovering = true;
-                            startImageScroll();
-                        });
-                        c.addEventListener("pointermove", function (e) {
-                            var r = c.getBoundingClientRect();
-                            var px = (e.clientX - r.left) / r.width - 0.5,
-                                py = (e.clientY - r.top) / r.height - 0.5;
-                            m.style.setProperty("--ry", px * 9 + "deg");
-                            m.style.setProperty("--rx", -py * 9 + "deg");
-                        });
-                        c.addEventListener("pointerleave", function () {
-                            hovering = false;
-                            m.style.setProperty("--ry", "0deg");
-                            m.style.setProperty("--rx", "0deg");
-                            returnImageToTop();
-                        });
+                        if (fine) {
+                            c.addEventListener("pointerenter", function () {
+                                setImageMotion(true);
+                            });
+                            c.addEventListener("pointermove", function (e) {
+                                var r = c.getBoundingClientRect();
+                                var px = (e.clientX - r.left) / r.width - 0.5,
+                                    py = (e.clientY - r.top) / r.height - 0.5;
+                                m.style.setProperty("--ry", px * 9 + "deg");
+                                m.style.setProperty("--rx", -py * 9 + "deg");
+                            });
+                            c.addEventListener("pointerleave", function () {
+                                m.style.setProperty("--ry", "0deg");
+                                m.style.setProperty("--rx", "0deg");
+                                setImageMotion(false);
+                            });
+                        } else if (projectScrollObserver) {
+                            projectScrollObserver.observe(c);
+                        }
                     });
                 }
                 $$("#views button").forEach(function (b) {
