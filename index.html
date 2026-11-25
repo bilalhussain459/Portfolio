@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Muhammad Bilal Hussain — WordPress, WooCommerce & Shopify developer from Karachi. 18 agency client websites + 3 freelance projects delivered."
+        />
+        <title>Muhammad Bilal Hussain — WordPress Developer · 21 Projects</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+                <link rel="stylesheet" href="assets/css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    </head>
+    <body class="is-loading">
+        <!-- PRELOADER -->
+        <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+            <div class="ld-hud">
+                <div class="ld-row top">
+                    <span>Portfolio — <span class="ld-year"></span></span>
+                    <button type="button" class="ld-skip" id="loaderSkip">skip intro [esc]</button>
+                </div>
+                <div class="ld-row">
+                    <span id="loaderStatus">Setting the type…</span>
+                    <div class="ld-pct"><span id="loaderPct">0</span><small>%</small></div>
+                </div>
+            </div>
+            <div class="ld-stage">
+                <div class="ld-mark">
+                    <div class="ld-ghost">Muhammad<br />Bilal<br /><em>Hussain</em></div>
+                    <div class="ld-fill" aria-hidden="true">Muhammad<br />Bilal<br /><em>Hussain</em></div>
+                </div>
+            </div>
+            <div class="ld-bar"></div>
+        </div>
+
+        <div class="cur-dot" id="curDot"></div>
+        <div class="cur-ring" id="curRing"><span id="curTxt"></span></div>
+        <div class="progress" id="progress"></div>
+        <div class="fprev" id="fprev">
+            <div class="fp-in" id="fpIn"><span id="fpName"></span><img id="fpImg" alt="" /></div>
+        </div>
+
+        <header id="hdr">
+            <div class="wrap nav-in">
+                <a href="#top" class="logo" data-cursor="Top">MBH<b>.</b><small>WordPress<br />Developer</small></a>
+                <nav class="links">
+                    <a href="#about" class="scr">About</a><a href="#services" class="scr">Services</a
+                    ><a href="#craft" class="scr">Craft</a><a href="#work" class="scr">Work</a
+                    ><a href="#journey" class="scr">Career</a><a href="#contact" class="scr">Contact</a>
+                </nav>
+                <div class="nav-r">
+                    <span class="clock">Karachi <span class="ck">--:--</span></span>
+                    <a
+                        href="assets/cv/Muhammad%20Bilal%20Hussain.pdf"
+                        download="Muhammad Bilal Hussain.pdf"
+                        class="btn dark sm cv-dl mag"
+                    >
+                        <svg class="dl-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M2.5 14h11" />
+                        </svg>
+                        <span class="cv-t">Download CV</span>
+                    </a>
+                    <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
+                </div>
+            </div>
+            <nav class="mobile-nav" id="mobNav">
+                <a href="#about">About</a><a href="#services">Services</a><a href="#craft">Craft</a
+                ><a href="#work">Work</a><a href="#journey">Career</a><a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- HERO -->
+            <section class="hero" id="top">
+                <div class="wrap hero-grid">
+                    <div class="hero-left" id="heroLeft">
+                        <div class="chip rv"><span class="pulse"></span>Available for freelance — Karachi, PK</div>
+                        <h1 data-split data-base="150">I turn designs into <em>working websites<span id="heroPeriod" data-no-split>.</span></em></h1>
+                        <p class="lead rv" style="--d: 500ms">
+                            I'm <b>Muhammad Bilal Hussain</b>, a WordPress developer from Karachi. I build responsive,
+                            high-performing websites and take every project from design to launch.
+                        </p>
+                        <div class="hero-cta rv" style="--d: 650ms">
+                            <a href="#work" class="btn dark mag" data-cursor="">
+                                See the work
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <path d="M3 8h10m0 0L9 4m4 4L9 12" />
+                                </svg>
+                            </a>
+                            <a
+                                href="assets/cv/Muhammad%20Bilal%20Hussain.pdf"
+                                download="Muhammad Bilal Hussain.pdf"
+                                class="btn line cv-dl mag"
+                            >
+                                <svg class="dl-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M2.5 14h11" />
+                                </svg>
+                                <span class="cv-t">Download CV</span>
+                            </a>
+                        </div>
+                        <dl class="hero-meta rv" style="--d: 800ms">
+                            <div>
+                                <dt>Agency sites</dt>
+                                <dd><span data-count="18">0</span></dd>
+                            </div>
+                            <div>
+                                <dt>Freelance</dt>
+                                <dd><span data-count="3">0</span></dd>
+                            </div>
+                            <div>
+                                <dt>Years</dt>
+                                <dd><span data-count="3" data-suf="+">0</span></dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="hv" id="hv">
+                        <div class="shot-wrap sw1" data-depth="22">
+                            <div class="shot" style="--r: 3deg; --d: 900ms">
+                                <div class="shot-bar"><i></i><i></i><i></i><span>canadiancmc.com</span></div>
+                                <div class="shot-body" style="background: #778da9">
+                                    Canadian<br />Medical Center
+                                    <img src="assets/images/work/canadiancmc.webp" alt="Canadian Medical Center website" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shot-wrap sw2" data-depth="-14">
+                            <div class="shot" style="--r: -3deg; --d: 1050ms">
+                                <div class="shot-bar"><i></i><i></i><i></i><span>tutinoyachts.com</span></div>
+                                <div class="shot-body" style="background: #415a77">
+                                    Tutino<br />Yachts
+                                    <img src="assets/images/work/tutinoyachts.webp" alt="Tutino Yachts website" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shot-wrap sw3" data-depth="32">
+                            <div class="shot" style="--r: 2deg; --d: 1200ms">
+                                <div class="shot-bar"><i></i><i></i><i></i><span>tbfertility.com</span></div>
+                                <div class="shot-body" style="background: #e0e1dd">
+                                    TB<br />Fertility
+                                    <img src="assets/images/work/tbfertility.webp" alt="TB Fertility website" />
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="badge mag" data-cursor="">
+                            <svg class="ring" viewBox="0 0 128 128">
+                                <defs><path id="circ" d="M64,64 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0" /></defs>
+                                <text><textPath href="#circ">Available for work · Karachi · </textPath></text>
+                            </svg>
+                            <svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M4 12L12 4M12 4H5M12 4v7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARQUEE -->
+            <div class="mq"><div class="mq-track" id="mqTrack"></div></div>
+
+            <!-- ABOUT -->
+            <section id="about">
+                <div class="wrap">
+                    <div class="lab rv"><span>01</span><i></i>Profile</div>
+                    <p class="stext" id="stext">
+                        WordPress developer with 3+ years of experience. I deliver responsive, conversion-ready websites
+                        across healthcare, marine, industrial, professional and luxury industries.
+                    </p>
+                    <div class="about-grid">
+                        <div class="portrait clip" id="portrait">
+                            <div class="mono-big">MBH<em>.</em></div>
+                            <img src="images/bilal.jpg" alt="Muhammad Bilal Hussain" data-par="0.06" onerror="this.remove()" />
+                            <div class="cap">Karachi, Pakistan<br />Building since 2020</div>
+                        </div>
+                        <div class="about-r">
+                            <p class="rv">
+                                I bring Figma designs to life with WordPress, Elementor and custom development.
+                                From WooCommerce stores to domain setup, hosting and SEO, I handle the complete process
+                                and keep every build fast, secure and easy to manage.
+                            </p>
+                            <div class="tags rv" style="--d: 120ms">
+                                <span>WordPress</span><span>Elementor</span><span>WPBakery</span><span>Bold Builder</span
+                                ><span>WooCommerce</span><span>Shopify</span><span>ACF</span><span>HTML5 / CSS3</span
+                                ><span>cPanel</span><span>SEO</span>
+                            </div>
+                            <div class="stats">
+                                <div class="stat rv">
+                                    <div class="n"><span data-count="3" data-suf="+">0</span></div>
+                                    <div class="l">Years</div>
+                                </div>
+                                <div class="stat rv" style="--d: 80ms">
+                                    <div class="n"><span data-count="18">0</span></div>
+                                    <div class="l">Agency sites</div>
+                                </div>
+                                <div class="stat rv" style="--d: 160ms">
+                                    <div class="n"><span data-count="3">0</span></div>
+                                    <div class="l">Freelance</div>
+                                </div>
+                                <div class="stat rv" style="--d: 240ms">
+                                    <div class="n"><span data-count="100" data-suf="%">0</span></div>
+                                    <div class="l">Responsive</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVICES -->
+            <section id="services" class="alt">
+                <div class="wrap">
+                    <div class="sh">
+                        <div>
+                            <div class="lab rv"><span>02</span><i></i>Services</div>
+                            <h2 data-split>What I <em>build</em> for you.</h2>
+                        </div>
+                        <p class="rv">Complete web solutions—from a new website to ongoing improvements and launch.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="sr rv" data-cursor="">
+                            <span class="sr-n">01</span>
+                            <h3>Figma to <em>WordPress</em></h3>
+                            <p class="sr-d">Clean, responsive page builds with pixel-perfect layouts using Elementor, WPBakery or Bold Builder.</p>
+                            <span class="sr-t">Design → Build</span>
+                        </div>
+                        <div class="sr rv" style="--d: 60ms" data-cursor="">
+                            <span class="sr-n">02</span>
+                            <h3>WooCommerce &amp; <em>Shopify</em></h3>
+                            <p class="sr-d">Complete WooCommerce and Shopify setups, including products, checkout and custom features.</p>
+                            <span class="sr-t">E-commerce</span>
+                        </div>
+                        <div class="sr rv" style="--d: 120ms" data-cursor="">
+                            <span class="sr-n">03</span>
+                            <h3>Speed, SEO &amp; <em>security</em></h3>
+                            <p class="sr-d">Faster pages, stronger SEO foundations, secure setup and reliable ongoing maintenance.</p>
+                            <span class="sr-t">Performance</span>
+                        </div>
+                        <div class="sr rv" style="--d: 180ms" data-cursor="">
+                            <span class="sr-n">04</span>
+                            <h3>Hosting, domains &amp; <em>deployment</em></h3>
+                            <p class="sr-d">Domain and cPanel setup, testing, migration and a smooth public launch.</p>
+                            <span class="sr-t">Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CRAFT -->
+            <section id="craft">
+                <div class="wrap">
+                    <div class="sh">
+                        <div>
+                            <div class="lab rv"><span>03</span><i></i>The craft</div>
+                            <h2 data-split>From <em>design</em> to launch.</h2>
+                        </div>
+                    </div>
+                    <div class="rv">
+                        <div class="cmp" id="cmp" data-cursor="Drag">
+                            <div class="mock wire">
+                                <div class="m-nav">
+                                    <div class="wb" style="height: 20px; width: 96px"></div>
+                                    <div class="m-links">
+                                        <div class="wb" style="height: 22px; width: 56px"></div>
+                                        <div class="wb" style="height: 22px; width: 64px"></div>
+                                        <div class="wb" style="height: 22px; width: 56px"></div>
+                                        <div class="wb" style="height: 22px; width: 60px"></div>
+                                    </div>
+                                    <div class="wb" style="height: 28px; width: 80px; border-radius: 99px"></div>
+                                </div>
+                                <div class="m-hero">
+                                    <div class="m-col">
+                                        <div class="wb" style="height: 28px; width: 80%"></div>
+                                        <div class="wb" style="height: 28px; width: 60%"></div>
+                                        <div class="wb" style="height: 12px"></div>
+                                        <div class="wb" style="height: 12px; width: 83%"></div>
+                                        <div class="wb" style="height: 36px; width: 112px; border-radius: 99px"></div>
+                                    </div>
+                                    <div class="m-img wb" style="font-size: 12px">image 4:3</div>
+                                </div>
+                                <div class="m-cards">
+                                    <div class="wb"></div>
+                                    <div class="wb"></div>
+                                    <div class="wb"></div>
+                                </div>
+                            </div>
+                            <div class="final-layer" id="finalLayer">
+                                <div class="mock final">
+                                    <div class="m-nav">
+                                        <div class="m-title" style="font-size: 22px">Verde<em>Clinic</em></div>
+                                        <div class="m-links"><span>Home</span><span>Services</span><span>Doctors</span><span>Contact</span></div>
+                                        <div style="background: #0d1b2a; color: #e0e1dd; font-size: 10px; font-weight: 500; height: 28px; padding: 0 16px; border-radius: 99px; display: flex; align-items: center;">Book now</div>
+                                    </div>
+                                    <div class="m-hero">
+                                        <div class="m-col">
+                                            <div class="m-title">Care that feels <em>human.</em></div>
+                                            <p style="font-size: 13px; opacity: 0.7; max-width: 360px">Trusted specialists, modern facilities and same-day appointments — all in one place.</p>
+                                            <div class="m-btn">Get started →</div>
+                                        </div>
+                                        <div class="m-img" style="background: linear-gradient(135deg, #415a77, #0d1b2a); box-shadow: 0 20px 40px rgba(13, 27, 42, 0.25); color: rgba(224, 225, 221, 0.85); font-family: var(--serif); font-size: 54px">+</div>
+                                    </div>
+                                    <div class="m-cards">
+                                        <div><i></i><b></b></div>
+                                        <div><i></i><b></b></div>
+                                        <div><i></i><b></b></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="lbl" style="left: 14px; background: #778da9; color: #0d1b2a">FIGMA DESIGN</span>
+                            <span class="lbl" style="right: 14px; background: var(--ink); color: var(--cream)">LIVE WORDPRESS</span>
+                            <div class="handle" id="handle"><span>↔</span></div>
+                        </div>
+                        <p class="capt">← drag to compare: wireframe vs. responsive, cross-browser-ready build →</p>
+                    </div>
+                    <div class="steps">
+                        <div class="step rv">
+                            <div class="k">01</div>
+                            <h3>Convert</h3>
+                            <p>Figma designs into responsive, mobile-optimized pages.</p>
+                        </div>
+                        <div class="step rv" style="--d: 100ms">
+                            <div class="k">02</div>
+                            <h3>Configure</h3>
+                            <p>WooCommerce stores, custom ACF fields &amp; plugins.</p>
+                        </div>
+                        <div class="step rv" style="--d: 200ms">
+                            <div class="k">03</div>
+                            <h3>Deploy</h3>
+                            <p>Domain, cPanel hosting &amp; end-to-end go-live.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STACK -->
+            <section id="stack" class="alt">
+                <div class="wrap">
+                    <div class="sh">
+                        <div>
+                            <div class="lab rv"><span>04</span><i></i>Technical skills</div>
+                            <h2 data-split>The tools behind my <em>work.</em></h2>
+                        </div>
+                    </div>
+                    <div class="rv">
+                        <div class="plug">
+                            <div class="plug-top">
+                                <div><span class="wp">W</span>Plugins / Installed</div>
+                                <div><span class="cnt" id="actCount"></span><button id="actAll">Activate all</button></div>
+                            </div>
+                            <div class="tabs" id="tabs"></div>
+                            <ul class="plist" id="plist"></ul>
+                        </div>
+                        <p class="capt">Switch tools on or off to explore my technical setup.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WORK -->
+            <section id="work">
+                <div class="wrap">
+                    <div class="sh">
+                        <div>
+                            <div class="lab rv"><span>05</span><i></i>Selected work</div>
+                            <h2 data-split><em>21</em> websites delivered.</h2>
+                        </div>
+                        <p class="rv">Explore live client websites and selected freelance projects.</p>
+                    </div>
+                    <div class="tools rv">
+                        <div class="filters" id="filters"></div>
+                        <div class="views" id="views">
+                            <button class="on" data-v="grid">Grid</button><button data-v="list">Index</button>
+                        </div>
+                    </div>
+                    <div class="pgrid" id="pgrid"></div>
+                    <div class="pidx" id="pidx" style="display: none"></div>
+                </div>
+            </section>
+
+            <!-- JOURNEY -->
+            <section id="journey" class="alt">
+                <div class="wrap">
+                    <div class="sh">
+                        <div>
+                            <div class="lab rv"><span>06</span><i></i>Experience &amp; education</div>
+                            <h2 data-split>My <em>experience</em> so far.</h2>
+                        </div>
+                    </div>
+                    <div class="tl" id="tl">
+                        <div class="tl-rail"></div>
+                        <div class="tl-line" id="tlLine"></div>
+                        <div class="commit rv">
+                            <div class="cm-top"><span class="t">May 2023 – Present</span><span>Current</span></div>
+                            <h3>WordPress Developer</h3>
+                            <p class="org">Digital Gravity — Karachi, Pakistan</p>
+                            <ul>
+                                <li>Build and maintain responsive WordPress websites with Elementor, Bold Builder and WPBakery.</li>
+                                <li>Convert Figma designs into polished, mobile-friendly web pages.</li>
+                                <li>Configure WooCommerce stores, ACF fields and custom plugins.</li>
+                                <li>Manage domains, cPanel hosting and complete website launches.</li>
+                                <li>Improve speed, SEO, security and troubleshoot technical issues.</li>
+                                <li>Delivered 18 live websites across multiple industries.</li>
+                            </ul>
+                        </div>
+                        <div class="commit rv">
+                            <div class="cm-top"><span class="t">Oct 2020 – Apr 2023</span><span>Foundation</span></div>
+                            <h3>SMS Services Executive</h3>
+                            <p class="org">Intellexal Solution — Karachi, Pakistan</p>
+                            <ul>
+                                <li>Managed enterprise SMS routing for reliable message delivery.</li>
+                                <li>Handled troubleshooting, error tracking and technical reporting.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab edu-h rv"><span>—</span><i></i>Education</div>
+                    <div class="edu">
+                        <div class="ec rv">
+                            <div class="y">2024 – 2026</div>
+                            <h3>Intermediate</h3>
+                            <p>Johor Degree Boys College — Karachi, Pakistan</p>
+                            <small>Examinations completed; results pending.</small>
+                        </div>
+                        <div class="ec rv" style="--d: 100ms">
+                            <div class="y">2020 – 2022</div>
+                            <h3>Matriculation</h3>
+                            <p>Abu Turab Boys Govt. School — Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="contact on-dark">
+                <div class="wrap">
+                    <div class="lab rv"><span>07</span><i></i>Contact</div>
+                    <h2 data-split>Your site could be <em>#22.</em></h2>
+                    <p class="sub rv">Have a Figma file, a store to launch or a site that needs fixing? Let's put it live.</p>
+                    <div class="rv">
+                        <a class="mail" href="mailto:muhammadbilalh919@gmail.com" data-cursor="Write">muhammadbilalh919@gmail.com</a>
+                    </div>
+                    <div class="c-btns rv">
+                        <a class="btn red mag" href="mailto:muhammadbilalh919@gmail.com">Start a project</a>
+                        <a
+                            href="assets/cv/Muhammad%20Bilal%20Hussain.pdf"
+                            download="Muhammad Bilal Hussain.pdf"
+                            class="btn line cv-dl mag"
+                        >
+                            <svg class="dl-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M2.5 14h11" />
+                            </svg>
+                            <span class="cv-t">Download CV</span>
+                        </a>
+                        <button class="btn line mag" id="copyBtn"><span id="copyT">Copy email</span></button>
+                    </div>
+                    <div class="cinfo rv">
+                        <a class="ci" href="tel:+923082197473"><small>Phone</small><span>+92 308 2197473</span></a>
+                        <a class="ci" href="https://wa.me/923082197473" target="_blank" rel="noreferrer"><small>WhatsApp</small><span>Message me ↗</span></a>
+                        <a class="ci" href="https://linkedin.com/in/muhammad-bilal-hussain-o308" target="_blank" rel="noreferrer"><small>LinkedIn</small><span>/muhammad-bilal-hussain-o308</span></a>
+                        <a class="ci" href="https://muhammadbilal-hussain.netlify.app" target="_blank" rel="noreferrer"><small>Portfolio</small><span>muhammadbilal-hussain.netlify.app</span></a>
+                        <div class="ci"><small>Location</small><span>Karachi, Pakistan · <span class="ck" style="display: inline; margin: 0">--:--</span></span></div>
+                        <div class="ci"><small>Status</small><span>↗ Open to freelance</span></div>
+                    </div>
+                    <div class="bigname" id="bigname" aria-hidden="true"></div>
+                    <footer>
+                        <span>© <span id="yr"></span> Muhammad Bilal Hussain · Karachi, Pakistan</span>
+                        <button id="toTop">Back to top ↑</button>
+                    </footer>
+                </div>
+            </section>
+        </main>
+
+                <script src="assets/js/main.js" defer></script>
+    </body>
+</html>
